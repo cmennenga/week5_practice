@@ -3,14 +3,30 @@
 <script>
 /*global nn */
 async function setup() {
+  // const key = api key
+  // const url = 'https://gnews.io/api/v4/search?q=economy&apikey=${key}'
   const url = 'https://dog.ceo/api/breeds/image/random'
   const res = await fetch(url)
   const json = await res.json()
-  console.log(json.message)
+ // const title = json.articles[0].title
+  // const desc = json.articles[0].description
   
   nn.create('img')
     .set('src', json.message)
     .addTo('body')
+  // nn.create('h1').content(title).addTo('body')
+  
+  // const words = []
+  // for (let i = 0; i < json.articles.length; i++) {
+  //   const title = json.articles[i].title
+  //   const desc = json.articles[i].description
+  //   const titleWords = title.split(' ')
+  //   const descWords = desc.split(' ')
+  //   words.push(...titleWords)                  grabs the things from titleWords one by one and puts in words array
+  
+  // }
+
+  
 }
 
 nn.on('load', setup)
